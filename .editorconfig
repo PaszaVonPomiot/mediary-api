@@ -13,3 +13,6 @@ end_of_line = lf
 
 [*.html]
 indent_size = 2
+
+[{*.yaml,*.yml}]
+indent_size = 2

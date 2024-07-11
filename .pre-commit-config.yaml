@@ -5,8 +5,8 @@ repos:
 - repo: https://github.com/astral-sh/ruff-pre-commit
   rev: v0.5.1
   hooks:
-  - id: ruff
-    args: [ --fix, --exit-non-zero-on-fix ]
+  - id: ruff-format
+
 
 - repo: https://github.com/pre-commit/mirrors-mypy
   rev: v1.10.1
@@ -36,5 +36,10 @@ repos:
   - id: check-yaml
   - id: check-json
   - id: end-of-file-fixer
-    name: fix-eof-newline
+    name: fix eof newline
     types_or: [python, yaml, toml]
+  - id: name-tests-test
+    name: pytest filenames
+    args: ['--pytest-test-first']
+  - id: no-commit-to-branch
+    name: forbid master

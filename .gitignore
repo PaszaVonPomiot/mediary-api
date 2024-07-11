@@ -26,3 +26,6 @@ temp/
 
 # idea
 .idea/
+
+# db
+*.db

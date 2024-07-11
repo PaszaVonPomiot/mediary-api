@@ -6,7 +6,7 @@ authors = [{ name = "PaszaVonPomiot", email = "undefined@example.com" }]
 requires-python = ">=3.12"
 readme = "README.md"
 license = { text = "GPL-3.0-only" }
-dependencies = []
+dependencies = ["uvicorn>=0.30.1", "fastapi>=0.111.0", "sqlmodel>=0.0.19"]
 
 [build-system]
 requires = ["pdm-backend"]
@@ -18,6 +18,11 @@ python_version = "3.12"
 exclude = ["tests/", "temp/"]
 
 [tool.ruff]
+line-length = 89
+target-version = "py312"
+exclude = [".git", ".venv/*"]
+
+[tool.ruff.lint]
 select = ["ALL"]
 ignore = [
     "D",      # pydocstyle
@@ -36,12 +41,10 @@ ignore = [
     "UP015",  # Unnecessary open() mode parameters
 ]
 fixable = ["ALL"]
-unfixable = []
-line-length = 89
-target-version = "py312"
-exclude = [".git", ".venv/*"]
+unfixable = ["ANN201"]
 
-[tool.ruff.per-file-ignores]
+
+[tool.ruff.lint.per-file-ignores]
 "__init__.py" = [
     "F401", # imported but unused
 ]

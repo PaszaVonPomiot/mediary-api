@@ -36,4 +36,8 @@
     "[json]": {
         "editor.formatOnSave": true
     },
+
+    "mypy-type-checker.importStrategy": "fromEnvironment",
+    "ruff.importStrategy": "fromEnvironment",
+    "ruff.configurationPreference": "filesystemFirst"
 }
