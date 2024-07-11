@@ -1,0 +1,28 @@
+# Environments
+.env
+.venv
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Pytest
+.pytest_cache/
+
+# pdm
+.pdm-python
+src/
+
+# mypy
+.mypy_cache/
+
+# Lazygit
+lazygit.exe
+
+# temp
+temp.py
+temp/
+
+# idea
+.idea/

@@ -1,0 +1,9 @@
+# NEVER EDIT THIS FILE MANUALLY
+_commit: fe2a751
+_src_path: gh:PaszaVonPomiot/copier_template_core
+authors_email: undefined@example.com
+authors_name: PaszaVonPomiot
+license: GPL-3.0-only
+module_name: mediary
+project_description: Medical diary API.
+project_name: mediary-api
