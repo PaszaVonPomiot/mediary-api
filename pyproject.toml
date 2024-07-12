@@ -41,7 +41,7 @@ ignore = [
     "UP015",  # Unnecessary open() mode parameters
 ]
 fixable = ["ALL"]
-unfixable = ["ANN201"]
+unfixable = []
 
 
 [tool.ruff.lint.per-file-ignores]
@@ -55,6 +55,7 @@ unfixable = ["ANN201"]
     "PLR2004", # Magic value used in comparison, consider replacing 4 with a constant variable
     "S311",    # Standard pseudo-random generators are not suitable for cryptographic purposes
     "PLR0913", # Too many arguments to function call (8 > 5)
+    "ANN201",  # Missing return type annotation for public function
 ]
 "*/docs/*" = [
     "E501", # Line too long
