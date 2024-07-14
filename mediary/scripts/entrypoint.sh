@@ -1,3 +1,3 @@
 #!/bin/bash
 
-source mediary/scripts/run_fastapi.sh
+source ./scripts/run_fastapi.sh

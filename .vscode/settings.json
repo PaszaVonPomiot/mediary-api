@@ -34,9 +34,9 @@
         "editor.defaultFormatter": "tamasfe.even-better-toml"
     },
     "[json]": {
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "vscode.json-language-features"
     },
-
     "mypy-type-checker.importStrategy": "fromEnvironment",
     "ruff.importStrategy": "fromEnvironment",
     "ruff.configurationPreference": "filesystemFirst"
