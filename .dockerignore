@@ -1,2 +1,6 @@
-# exclude all dot directories and files
+# all dot directories and files
 .*
+
+# db data files
+db/
+*.db
