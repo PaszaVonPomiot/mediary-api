@@ -1,0 +1,2 @@
+# Ideas
+- Dockerfile.scratch based on https://github.com/GoogleContainerTools/distroless/tree/main/python3 and https://medium.com/analytics-vidhya/dockerizing-a-rest-api-in-python-less-than-9-mb-and-based-on-scratch-image-ef0ee3ad3f0a

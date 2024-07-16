@@ -1,0 +1,45 @@
+ARG APP_NAME=mediary
+ARG APP_ENV=LOCAL
+
+# ------------------------------------------------------------------------------
+
+FROM python:alpine AS base
+
+ARG APP_NAME
+ARG APP_ENV
+ENV APP_ENV=${APP_ENV} PATH=/home/${APP_NAME}/.venv/bin:$PATH
+WORKDIR /home/${APP_NAME}
+
+# ------------------------------------------------------------------------------
+
+FROM base AS builder
+
+COPY ./${APP_NAME} ./requirements.txt ./
+RUN pip install uv && \
+    uv venv /home/${APP_NAME}/.venv && \
+    uv pip install -r requirements.txt
+
+# ------------------------------------------------------------------------------
+
+FROM base AS runner
+
+ARG GLIBC_REPO=https://github.com/sgerrand/alpine-pkg-glibc
+ARG GLIBC_VERSION=2.35-r1
+
+RUN adduser --disabled-password --gecos "Application User" \
+    --home "/home/${APP_NAME}" --shell /usr/sbin/nologin ${APP_NAME}
+
+# Install glibc compatibility for alpine
+RUN set -ex && \
+    apk --update add libstdc++ curl ca-certificates && \
+    for pkg in glibc-${GLIBC_VERSION} glibc-bin-${GLIBC_VERSION}; \
+        do curl -sSL ${GLIBC_REPO}/releases/download/${GLIBC_VERSION}/${pkg}.apk -o /tmp/${pkg}.apk; done && \
+    apk add --no-cache --force-overwrite --allow-untrusted /tmp/*.apk && \
+    rm -v /tmp/*.apk && \
+    /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc-compat/lib
+
+COPY --from=builder --chown=${APP_NAME}:${APP_NAME} --chmod=750 /home /home
+
+EXPOSE 8000
+USER ${APP_NAME}
+ENTRYPOINT [ "./scripts/entrypoint.sh" ]

@@ -1,8 +1,13 @@
+ARG APP_NAME=mediary
+ARG APP_ENV=LOCAL
+
+# ------------------------------------------------------------------------------
+
 FROM python:3.12-slim AS base
 
-ARG APP_NAME=mediary
-ENV APP_ENV=LOCAL
-ENV PATH="/home/${APP_NAME}/.venv/bin:$PATH"
+ARG APP_NAME
+ARG APP_ENV
+ENV APP_ENV=${APP_ENV} PATH=/home/${APP_NAME}/.venv/bin:$PATH
 WORKDIR /home/${APP_NAME}
 
 # ------------------------------------------------------------------------------
@@ -18,10 +23,8 @@ RUN pip install uv && \
 
 FROM base AS runner
 
-RUN apt-get update && apt-get install -y procps \
-	&& rm -rf /var/lib/apt/lists/* \
-    && adduser --disabled-password --gecos "Application User" \
-       --home "/home/${APP_NAME}" --shell /usr/sbin/nologin ${APP_NAME}
+RUN adduser --disabled-password --gecos "Application User" \
+    --home "/home/${APP_NAME}" --shell /usr/sbin/nologin ${APP_NAME}
 COPY --from=builder --chown=${APP_NAME}:${APP_NAME} --chmod=750 /home /home
 
 EXPOSE 8000
