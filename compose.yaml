@@ -1,5 +1,5 @@
+name: mediary
 services:
-
   api:
     container_name: fastapi
     build:
@@ -17,10 +17,10 @@ services:
       - ./mediary/app:/home/mediary/app
       - ./mediary/settings:/home/mediary/settings
       - ./mediary/alembic:/home/mediary/alembic
-
   db:
     container_name: postgres
-    image: postgres:latest
+    build:
+      dockerfile: dockerfiles/db/Dockerfile.alpine
     ports:
       - 5432:5432
     environment:
