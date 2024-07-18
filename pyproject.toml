@@ -61,8 +61,11 @@ unfixable = []
     "E501", # Line too long
 ]
 
+[tool.bandit]
+exclude_dirs = ["tests", ".venv", "temp"]
+
 [tool.pdm.dev-dependencies]
 test = ["pytest>=8.2.2"]
-lint = ["mypy>=1.10.1", "ruff>=0.5.1"]
-version = []
+lint = ["mypy>=1.10.1", "ruff>=0.5.1", "bandit[toml]>=1.7.9"]
 git = ["pre-commit>=3.7.1"]
+version = []
