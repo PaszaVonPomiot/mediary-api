@@ -16,9 +16,9 @@ services:
     depends_on:
       - db
     volumes:
-      - ./mediary/app:/home/mediary/app
-      - ./mediary/settings:/home/mediary/settings
-      - ./mediary/alembic:/home/mediary/alembic
+      - ./mediary/app:/mediary/app
+      - ./mediary/settings:/mediary/settings
+      - ./mediary/alembic:/home/alembic
   db:
     container_name: postgres
     build:
