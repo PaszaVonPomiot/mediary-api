@@ -4,8 +4,8 @@ ARG APP_NAME
 ENV PATH=/home/${APP_NAME}/.venv/bin:$PATH
 
 RUN find /etc/skel -type f -name ".*" -delete \
-    && adduser --disabled-password --shell /usr/sbin/nologin ${APP_NAME} \
-    --comment "Application User"
+    && useradd --home-dir /home/${APP_NAME} --comment "Application User" \
+    --shell /usr/sbin/nologin ${APP_NAME}
 WORKDIR /home/${APP_NAME}
 
 # ------------------------------------------------------------------------------
@@ -21,8 +21,8 @@ RUN pip install uv && \
 
 FROM base AS runner
 
-COPY --chown=${APP_NAME}:${APP_NAME} --chmod=750 ${APP_NAME} /home/${APP_NAME}
 COPY --from=builder --chown=${APP_NAME}:${APP_NAME} --chmod=750 /home/${APP_NAME}/.venv .venv
+COPY --chown=${APP_NAME}:${APP_NAME} --chmod=751 ${APP_NAME} /home/${APP_NAME}
 
 EXPOSE 8000
 USER ${APP_NAME}

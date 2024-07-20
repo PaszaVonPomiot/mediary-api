@@ -1,16 +1,12 @@
 [project]
-name = "mediary-api"
+name = "mediary"
 version = "0.1.0"
 description = "Medical diary API."
 authors = [{ name = "PaszaVonPomiot", email = "undefined@example.com" }]
 requires-python = ">=3.12"
 readme = "README.md"
 license = { text = "GPL-3.0-only" }
-dependencies = [
-    "uvicorn>=0.30.1",
-    "fastapi>=0.111.0",
-    "sqlmodel>=0.0.20",
-]
+dependencies = ["uvicorn>=0.30.1", "fastapi>=0.111.0", "sqlmodel>=0.0.20"]
 
 [build-system]
 requires = ["pdm-backend"]

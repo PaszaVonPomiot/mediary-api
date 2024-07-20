@@ -17,9 +17,6 @@ src/
 # mypy
 .mypy_cache/
 
-# Lazygit
-lazygit.exe
-
 # temp
 temp.py
 temp/
@@ -28,5 +25,5 @@ temp/
 .idea/
 
 # db
-db/
-*.db
+/db/
+/*.db

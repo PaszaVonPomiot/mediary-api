@@ -1,9 +1,10 @@
 {
     "files.exclude": {
-        "__pycache__": true,
-        ".pdm-build": true,
         ".mypy_cache": true,
-        ".ruff_cache": true
+        ".pdm-build": true,
+        ".pytest_cache": true,
+        ".ruff_cache": true,
+        "**/__pycache__": true
     },
     "extensions.ignoreRecommendations": true,
     "explorer.confirmDragAndDrop": false,

@@ -3,8 +3,7 @@ FROM python:alpine AS base
 ARG APP_NAME
 ENV PATH=/home/${APP_NAME}/.venv/bin:$PATH
 
-RUN find /etc/skel -type f -name ".*" -delete \
-    && adduser --disabled-password --comment "Application User" \
+RUN adduser --disabled-password --gecos "Application User" \
     --home "/home/${APP_NAME}" --shell /usr/sbin/nologin ${APP_NAME}
 WORKDIR /home/${APP_NAME}
 

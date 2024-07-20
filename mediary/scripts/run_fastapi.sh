@@ -5,6 +5,7 @@ APP_HOST="0.0.0.0"
 APP_PORT=8000
 
 echo "Starting FastAPI..."
+echo "Pwd: $PWD"
 echo "Environment: $APP_ENV"
 
 if [ "$APP_ENV" == "LOCAL" ]; then
