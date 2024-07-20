@@ -31,7 +31,7 @@ repos:
     name: pdm lock check
   - id: pdm-export
     name: pdm export
-    args: ['-o', 'requirements.txt', '--prod', '--without-hashes']
+    args: ['-o', 'requirements.txt', '--prod', '--without-hashes', '--self']
     files: ^pdm.lock$
     always_run: true
 

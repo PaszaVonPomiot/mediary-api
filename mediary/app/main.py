@@ -1,5 +1,6 @@
 from fastapi import FastAPI
+import logging
 
-from mediary.app.enums import Gender
 
+log = logging.getLogger(__name__)
 app = FastAPI()
