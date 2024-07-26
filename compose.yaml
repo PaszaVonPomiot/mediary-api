@@ -4,7 +4,7 @@ services:
     container_name: fastapi
     build:
       context: .
-      dockerfile: dockerfiles/api/Dockerfile
+      dockerfile: "dockerfiles/api/Dockerfile.slim.uv"
       args:
         APP_NAME: ${APP_NAME}
     ports:
@@ -18,11 +18,11 @@ services:
     volumes:
       - ./mediary/app:/mediary/app
       - ./mediary/settings:/mediary/settings
-      - ./mediary/alembic:/home/alembic
+      - ./mediary/alembic:/alembic
   db:
     container_name: postgres
     build:
-      dockerfile: dockerfiles/db/Dockerfile.alpine
+      dockerfile: "dockerfiles/db/Dockerfile.alpine.uv"
     ports:
       - 5432:5432
     env_file:

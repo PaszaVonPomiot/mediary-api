@@ -43,5 +43,7 @@
     },
     "mypy-type-checker.importStrategy": "fromEnvironment",
     "ruff.importStrategy": "fromEnvironment",
-    "ruff.configurationPreference": "filesystemFirst"
+    "ruff.configurationPreference": "filesystemFirst",
+    "explorer.compactFolders": true,
+    "explorer.excludeGitIgnore": false
 }
