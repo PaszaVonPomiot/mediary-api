@@ -1,7 +1,8 @@
 FROM python:alpine AS base
 
 ARG APP_NAME
-ENV PATH=/${APP_NAME}/.venv/bin:$PATH
+ENV PATH=/${APP_NAME}/.venv/bin:$PATH \
+    PYTHONPATH=/
 
 RUN mkdir --mode=700 /${APP_NAME} \
     && adduser --disabled-password --gecos "Application User" \

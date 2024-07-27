@@ -4,7 +4,7 @@ services:
     container_name: fastapi
     build:
       context: .
-      dockerfile: "dockerfiles/api/Dockerfile.slim.uv"
+      dockerfile: dockerfiles/api/Dockerfile.alpine_uv
       args:
         APP_NAME: ${APP_NAME}
     ports:
@@ -22,7 +22,7 @@ services:
   db:
     container_name: postgres
     build:
-      dockerfile: "dockerfiles/db/Dockerfile.alpine.uv"
+      dockerfile: dockerfiles/db/Dockerfile.alpine_uv
     ports:
       - 5432:5432
     env_file:
