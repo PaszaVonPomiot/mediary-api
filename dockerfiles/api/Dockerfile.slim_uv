@@ -16,6 +16,7 @@ WORKDIR /${APP_NAME}
 FROM base AS builder
 
 COPY . .
+
 RUN pip install --upgrade pip \
     && pip install uv \
     && uv venv \
@@ -31,3 +32,4 @@ COPY --chown=${APP_NAME}:${APP_NAME} --chmod=750 ${APP_NAME} /${APP_NAME}
 EXPOSE 8000
 USER ${APP_NAME}
 ENTRYPOINT [ "./scripts/entrypoint.sh" ]
+

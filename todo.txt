@@ -1,0 +1,7 @@
+- fix that uv needs fresh requirements and adding a package from pdm doesn't automatically generate new requirements.txt
+- change dictConfig to fileConfig from pyproject.toml
+- apply logging practices https://betterstack.com/community/guides/logging/python/python-logging-best-practices/
+- add also json logging
+- uvicorn run programattically and with the same logs style as logging
+- add gitlint
+- migrate to loguru
